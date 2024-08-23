@@ -132,8 +132,20 @@ void modifyPerson(Person *people, int count) {
     printf("请重新填入年龄： ");
     scanf("%d", &people[count].age);
     getchar();
-    printf("请重新填入性别： ");
-    scanf("%c", &people[count].gender);
+    while (1)
+    {   
+        printf("请重新输入性别(M for Male, F for Female):  ");
+        scanf("%c", &people[count].gender);
+
+        if (people[count].gender == 'M' || people[count].gender == 'F')
+        {
+            break;
+        } else {
+            printf("输入异常，请重新输入。\n");
+        }
+        
+        
+    }
     printf("修改完成！！\n\n");
 
 }

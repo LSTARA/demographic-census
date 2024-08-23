@@ -76,8 +76,21 @@ void addPerson(Person *people, int *count) {
     printf("输入年龄： ");
     scanf("%d", &people[*count].age);
     getchar();  //%c会读取换行符，需要添加getchar()
-    printf("输入性别(M代表Male, F代表Female)： ");
-    scanf("%c", &people[*count].gender);
+    while (1)
+    {   
+        printf("请输入性别(M for Male, F for Female):  ");
+        scanf("%c", &people[*count].gender);
+
+        if (people[*count].gender == 'M' || people[*count].gender == 'F')
+        {
+            break;
+        } else {
+            printf("输入异常，请重新输入。\n");
+        }
+        
+        
+    }
+    
     printf("添加成功！！\n\n");
 
     (*count)++;
@@ -113,6 +126,7 @@ void modifyPerson(Person *people, int count) {
 
 
     number = (number - 1);
+    count = number;
     printf("请重新填入姓名： ");
     scanf("%s", people[count].name);  //字符数组
     printf("请重新填入年龄： ");
